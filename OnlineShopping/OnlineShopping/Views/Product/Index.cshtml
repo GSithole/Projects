@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DataConection.Product>
+@using OnlineShopping.CustomHtmlHelpers;
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Index</h2>
+
+<div class=" container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+
+            <div class="col-md-4">
+
+                @*@Html.DisplayFor(modelItem => item.ProdID)*@
+
+                @Html.DisplayFor(modelItem => item.ProdName)
+
+                @Html.Image(item.ImageUrl, "image", new { @class = "img-size" })
+
+                <p>R @Html.DisplayFor(modelItem => item.Price)</p>
+
+                @Html.ActionLink("View produnct", "AddOrCreate", new { @id = item.ProdID, @userid = User.Identity.Name }) |
+
+            </div>
+
+
+        }
+    </div>
+</div>
+
+
