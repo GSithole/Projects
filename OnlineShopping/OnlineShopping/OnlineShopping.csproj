@@ -214,7 +214,7 @@
     <Content Include="Views\Product\userCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Dataa\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
