@@ -1,0 +1,85 @@
+﻿@model IEnumerable<DataConection.Cart>
+
+@{
+    ViewBag.Title = "userCart";
+}
+
+<h2>userCart</h2>
+
+
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.userId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdID)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.ProdName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EachPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th></th>
+    </tr>
+    @{double tot = 0; }
+    @foreach (var item in Model)
+    {
+        using (Html.BeginForm("Delete", "Product", new { @id = item.ProdID, @userid = User.Identity.Name }))
+        {
+            <tr>
+                @*<td>
+                    @Html.HiddenFor(modelItem => item.userId)
+                </td>
+                <td>
+                    @Html.HiddenFor(modelItem => item.ProdID)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProdName)
+                </td>
+                <td>
+                    @Html.Image(item.ImageUrl, item.ProdName, new { @class = "img-size" })
+                    @Html.HiddenFor(modelItem => item.ImageUrl)
+                    @*@Html.DisplayFor(modelItem => item.ImageUrl)*@
+                </td>
+                <td>
+                    <p>R @Html.DisplayFor(modelItem => item.EachPrice)</p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    <p>R @Html.DisplayFor(modelItem => item.Total)</p>
+                    @{ tot += item.Total;}
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit_Cart", new { @id = item.ProdID, @userid = User.Identity.Name }) |
+                    
+
+                    <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this product with Product name = @item.ProdName')" />
+
+                </td>
+            </tr>
+        }
+    }
+
+    <tr>
+        <td colspan="4">
+            <p>Total amount is :</p>
+        </td>
+        <td>R @tot</td>
+    </tr>
+
+</table>
+
+@Html.ActionLink("Continue shopping","index") 

@@ -10,14 +10,30 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Welcome back</h2>
-        <p>Please login to start your shopping</p>
-        <p><a class="btn btn-default" href="/Login/Login">Login &raquo;</a></p>
+        @if (Request.IsAuthenticated)
+        {
+            <h2> Welcome back </h2>
+            <p> Please click below to start your shopping </p>
+            <p><a class="btn btn-default" href="/Product/Index">Start Shopping &raquo;</a></p>
+        }
+        else
+        {
+            <h2> Welcome back </h2>
+            <p> Please login to start your shopping </p>
+            <p><a class="btn btn-default" href="/Login/Login">Login &raquo;</a></p>
+
+        }
     </div>
     <div class="col-md-4">
+        @if (Request.IsAuthenticated)
+        {
+        }
+        else
+        {
         <h2>New user?</h2>
         <p>please register your account to start enjoying your shopping. </p>
         <p><a class="btn btn-default" href="/Login/Register">Register &raquo;</a></p>
+        }
     </div>
     
 </div>

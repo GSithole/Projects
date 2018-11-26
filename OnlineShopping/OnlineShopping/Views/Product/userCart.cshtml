@@ -38,19 +38,13 @@
         using (Html.BeginForm("Delete", "Product", new { @id = item.ProdID, @userid = User.Identity.Name }))
         {
             <tr>
-                @*<td>
-                    @Html.HiddenFor(modelItem => item.userId)
-                </td>
-                <td>
-                    @Html.HiddenFor(modelItem => item.ProdID)
-                </td>*@
+                
                 <td>
                     @Html.DisplayFor(modelItem => item.ProdName)
                 </td>
                 <td>
                     @Html.Image(item.ImageUrl, item.ProdName, new { @class = "img-size" })
                     @Html.HiddenFor(modelItem => item.ImageUrl)
-                    @*@Html.DisplayFor(modelItem => item.ImageUrl)*@
                 </td>
                 <td>
                     <p>R @Html.DisplayFor(modelItem => item.EachPrice)</p>

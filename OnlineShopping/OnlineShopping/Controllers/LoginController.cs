@@ -39,6 +39,14 @@ namespace OnlineShopping.Controllers
             }
         }
 
+              
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
+        }
+
         // GET: Login/Details/5
         public ActionResult Details(int id)
         {

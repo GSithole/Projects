@@ -9,7 +9,13 @@
     <link href="~/StyleSheet/Style.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <section id="login">
+        @Html.Partial("_LoginPartial")
+    </section>
+    <br />
+    <br />
+    <div class="navbar navbar-default navbar-fixed-top">
+
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -18,14 +24,18 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Online shopping", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
             </div>
+
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+
+                <ul class="nav navbar-nav navbar-right">
+
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Shop", "index","Product") </li>
-                    <li>@Html.ActionLink("Cart","userCart","Product", new { @userid = User.Identity.Name },"") </li>
+                    <li>@Html.ActionLink("Shop", "index", "Product") </li>
+                    <li>@Html.ActionLink("Cart", "userCart", "Product", new { @userid = User.Identity.Name }, "") </li>
                 </ul>
             </div>
         </div>

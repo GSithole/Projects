@@ -212,9 +212,10 @@
     <Content Include="Views\Product\AddToCart.cshtml" />
     <Content Include="Views\Product\Edit_Cart.cshtml" />
     <Content Include="Views\Product\userCart.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Dataa\" />
+    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

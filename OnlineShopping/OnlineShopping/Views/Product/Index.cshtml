@@ -16,15 +16,15 @@
             <div class="col-md-4">
 
                 @*@Html.DisplayFor(modelItem => item.ProdID)*@
+                <ul>
+                    <li> @Html.DisplayFor(modelItem => item.ProdName)</li>
 
-                @Html.DisplayFor(modelItem => item.ProdName)
+                    <li> @Html.Image(item.ImageUrl, "image", new { @class = "img-size" }) </li>
 
-                @Html.Image(item.ImageUrl, "image", new { @class = "img-size" })
+                    <li> R @Html.DisplayFor(modelItem => item.Price) </li>
 
-                <p>R @Html.DisplayFor(modelItem => item.Price)</p>
-
-                @Html.ActionLink("View produnct", "AddOrCreate", new { @id = item.ProdID, @userid = User.Identity.Name }) |
-
+                    <li> @Html.ActionLink("View produnct", "AddOrCreate", new { @id = item.ProdID, @userid = User.Identity.Name }) </li>
+                </ul>
             </div>
 
 

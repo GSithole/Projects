@@ -1,0 +1,15 @@
+﻿@if (Request.IsAuthenticated) {
+    <text>
+<p style="color:red;">  Hello, @User.Identity.Name !</p>
+        @using (Html.BeginForm("Logoff", "Login"))
+        {
+            <a href="/Login/LogOff" onclick="return confirm('Afe you sure youwant to logoff')">Log off</a>
+        }
+
+    </text>
+} else {
+    <ul>
+        <li>@Html.ActionLink("Register", "Register", "Login")</li>
+        <li>@Html.ActionLink("Log in", "Login", "Login")</li>
+    </ul>
+}
